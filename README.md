@@ -1,4 +1,4 @@
-# Quickstart
+# README
 
 Ini adalah panduan untuk menjalankan aplikasi API sederhana (FastAPI) di local environment.
 
@@ -7,12 +7,26 @@ Ini adalah panduan untuk menjalankan aplikasi API sederhana (FastAPI) di local e
 
 ## Langkah-langkah
 
-1. **Buat Virtual Environment (Opsional tapi direkomendasikan)**
+1. **Cek apakah Python sudah terinstall**
+   - **Windows**: Buka Command Prompt atau PowerShell.
+   - **macOS**: Buka Terminal.
+
+   Jalankan perintah:
+   ```bash
+   python --version
+   ```
+   > **Note untuk macOS**: Jika `python` tidak dikenal, coba ketik `python3 --version`.
+   
+   - Jika muncul tulisan seperti `Python 3.x.x` (misal 3.10.1), berarti aman. Lanjut ke step berikutnya.
+   - Jika error atau perintah tidak dikenali, download dan install Python dulu dari [python.org](https://www.python.org/downloads/). 
+     > **PENTING (Windows):** Saat install, jangan lupa centang opsi **"Add Python to PATH"**.
+
+2. **Buat Virtual Environment (Opsional tapi direkomendasikan)**
    ```bash
    python -m venv venv
    ```
 
-2. **Aktifkan Virtual Environment**
+3. **Aktifkan Virtual Environment**
    - Windows:
      ```bash
      .\venv\Scripts\activate
@@ -22,17 +36,17 @@ Ini adalah panduan untuk menjalankan aplikasi API sederhana (FastAPI) di local e
      source venv/bin/activate
      ```
 
-3. **Install Dependencies**
+4. **Install Dependencies**
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Jalankan Aplikasi**
+5. **Jalankan Aplikasi**
    ```bash
    python main.py
    ```
 
-5. **Cek Aplikasi**
+6. **Cek Aplikasi**
    Buka browser dan akses:
    - Root: [http://localhost:8000](http://localhost:8000) -> Output: `{"message": "Hello World"}`
    - Documentation: [http://localhost:8000/docs](http://localhost:8000/docs)
