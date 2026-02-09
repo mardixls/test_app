@@ -52,3 +52,66 @@ Ini adalah panduan untuk menjalankan aplikasi API sederhana (FastAPI) di local e
    Buka browser dan akses:
    - Root: [http://localhost:8000](http://localhost:8000) -> Output: `{"message": "Hello World"}`
    - Documentation: [http://localhost:8000/docs](http://localhost:8000/docs)
+
+## Troubleshooting
+
+### Port 8000 sudah digunakan
+Jika muncul error `Address already in use`:
+
+**Windows:**
+1. Cari proses yang menggunakan port 8000:
+   ```bash
+   netstat -ano | findstr :8000
+   ```
+2. Catat nomor PID dari hasil output (kolom terakhir)
+3. Matikan proses tersebut (ganti <PID> dengan nomor yang didapat):
+   ```bash
+   taskkill /PID <PID> /F
+   ```
+4. Jalankan ulang aplikasi
+
+**macOS/Linux:**
+1. Matikan proses yang menggunakan port 8000:
+   ```bash
+   lsof -ti:8000 | xargs kill -9
+   ```
+2. Jalankan ulang aplikasi
+
+### Module tidak ditemukan
+Jika muncul error `ModuleNotFoundError`:
+1. Pastikan Anda berada di folder project yang benar
+2. Install ulang dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Tunggu hingga instalasi selesai
+4. Jalankan ulang aplikasi dengan `python main.py`
+
+### pip tidak dikenali
+**Windows:**
+1. Gunakan command alternatif:
+   ```bash
+   python -m pip install -r requirements.txt
+   ```
+2. Jika masih error, pastikan Python sudah ditambahkan ke PATH saat instalasi
+
+**macOS/Linux:**
+1. Coba gunakan pip3:
+   ```bash
+   pip3 install -r requirements.txt
+   ```
+2. Atau gunakan:
+   ```bash
+   python3 -m pip install -r requirements.txt
+   ```
+
+### Aplikasi tidak bisa diakses
+1. Cek terminal, pastikan tidak ada error saat aplikasi berjalan
+2. Pastikan muncul pesan seperti "Uvicorn running on http://127.0.0.1:8000"
+3. Coba akses URL alternatif:
+   - [http://localhost:8000](http://localhost:8000)
+   - [http://127.0.0.1:8000](http://127.0.0.1:8000)
+4. Jika masih tidak bisa, restart aplikasi:
+   - Tekan Ctrl+C di terminal untuk stop aplikasi
+   - Jalankan ulang dengan `python main.py`
+5. Refresh browser setelah aplikasi berjalan kembali
