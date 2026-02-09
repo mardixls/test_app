@@ -35,6 +35,8 @@ Ini adalah panduan untuk menjalankan aplikasi API sederhana (FastAPI) di local e
      ```bash
      source venv/bin/activate
      ```
+   
+   > **Jika gagal mengaktifkan virtual environment**: Tidak masalah, skip langkah 2 dan 3, lanjut langsung ke step 4. Dependencies akan terinstall secara global di sistem Python Anda.
 
 4. **Install Dependencies**
    ```bash
